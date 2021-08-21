@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1> <%= todayDate %>  </h1>
+    </div>
+    <div class="box">
+
+        <% for(var i=0;i<newItem.length;i++){ %>
+            <form method="POST" action="/removed">
+            
+            <div class="item">
+                <input type="checkbox"class="checkbox" name="check" value="<%=newItem[i]._id%>" onchange="this.form.submit()" >
+                    <p> <%= newItem[i].name  %>  </p>
+        </div>
+    </form>
+        <% } %>
+        <!-- <% newItem.forEach((elem)=>{ %>
+            <div class="item">
+                <input type="checkbox" >
+                    <p> <%= elem.name  %> </p>
+        <%})%> -->
+    </div>
+    
+    <form class="item" action="/" method="POST">
+        <input type="text" autocomplete="off" placeholder="Enter new item"  name="item">
+        <input type="submit" value="ADD">
+        <!-- <input type="submit" value="+"> -->
+    </form>
+</body>
+</html>
